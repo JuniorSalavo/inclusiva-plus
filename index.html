@@ -212,10 +212,15 @@ Na próxima versão adicionaremos sinais, imagens e atividades.
 <hr>
 
 <h3>🤟 Aprenda Libras</h3>
+  <div id="cartaoLibras" style="display:none; margin:15px 0; padding:18px; background:#eef6ff; border-radius:16px; text-align:center;">
+  <div id="emojiLibras" style="font-size:60px;">🤟</div>
+  <h3 id="palavraLibras">Libras</h3>
+  <p id="descricaoLibras">Escolha uma palavra abaixo.</p>
+  </div>
 
 <p>Escolha uma palavra para aprender:</p>
 
-<button class="phrase" onclick="falar('Olá')">
+<button class="phrase" onclick="mostrarLibras('Olá','👋','Olá! Aqui aparecerá o sinal de Libras após adicionarmos a demonstração visual.'); falar('Olá')">
 👋 Olá
 </button>
 
@@ -316,6 +321,12 @@ function abrir(id) {
   document.getElementById(id).scrollIntoView({
     behavior: 'smooth'
   });
+}
+  function mostrarLibras(palavra, emoji, descricao) {
+  document.getElementById('cartaoLibras').style.display = 'block';
+  document.getElementById('palavraLibras').textContent = palavra;
+  document.getElementById('emojiLibras').textContent = emoji;
+  document.getElementById('descricaoLibras').textContent = descricao;
 }
 
 function falar(texto) {

@@ -1,0 +1,12 @@
+{
+  "name": "Inclusiva+",
+  "short_name": "Inclusiva+",
+  "description": "Aplicativo educacional inclusivo e acessível para estudantes PCD",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#2457d6",
+  "lang": "pt-BR",
+  "orientation": "any"
+}

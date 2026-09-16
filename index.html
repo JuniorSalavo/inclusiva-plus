@@ -329,6 +329,7 @@ function abrir(id) {
   document.getElementById('palavraLibras').textContent = palavra;
   document.getElementById('emojiLibras').textContent = emoji;
   document.getElementById('descricaoLibras').textContent = descricao;
+document.getElementById('gifLibras').style.display = palavra === 'Olá' ? 'block' : 'none';    
 }
 
 function falar(texto) {

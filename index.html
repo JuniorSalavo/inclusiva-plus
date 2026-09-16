@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inclusiva+</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #172033;
+}
+
+header {
+  background: #2457d6;
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 42px;
+}
+
+header p {
+  font-size: 19px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 25px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+button {
+  min-height: 125px;
+  border: 0;
+  border-radius: 20px;
+  background: white;
+  font-size: 25px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px #0002;
+  cursor: pointer;
+  padding: 15px;
+}
+
+button:active {
+  transform: scale(.98);
+}
+
+.icon {
+  display: block;
+  font-size: 45px;
+  margin-bottom: 8px;
+}
+
+.panel {
+  display: none;
+  background: white;
+  margin-top: 25px;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px #0002;
+}
+
+.panel h2 {
+  text-align: left;
+}
+
+textarea {
+  width: 100%;
+  min-height: 130px;
+  font-size: 22px;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.action {
+  background: #2457d6;
+  color: white;
+  min-height: 65px;
+  margin: 8px;
+  font-size: 20px;
+}
+
+.phrase {
+  min-height: 75px;
+  font-size: 20px;
+  margin: 6px;
+}
+
+.big {
+  font-size: 25px;
+}
+
+.contrast {
+  background: #000;
+  color: #fff;
+}
+
+.contrast .panel,
+.contrast button {
+  background: #111;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+@media (max-width: 600px) {
+  .menu { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>♿ Inclusiva+</h1>
+<p>Comunicação, aprendizagem e acessibilidade para todos.</p>
+</header>
+
+<div class="container">
+
+<h2>O que você deseja fazer?</h2>
+
+<div class="menu">
+
+<button onclick="abrir('comunicacao')">
+<span class="icon">💬</span>
+Comunicação
+</button>
+
+<button onclick="abrir('libras')">
+<span class="icon">🤟</span>
+Libras
+</button>
+
+<button onclick="abrir('ouvir')">
+<span class="icon">🔊</span>
+Ouvir texto
+</button>
+
+<button onclick="abrir('quiz')">
+<span class="icon">🧠</span>
+Quiz
+</button>
+
+<button onclick="abrir('jogos')">
+<span class="icon">🎮</span>
+Jogos
+</button>
+
+<button onclick="abrir('acessibilidade')">
+<span class="icon">⚙️</span>
+Acessibilidade
+</button>
+
+</div>
+
+<div id="comunicacao" class="panel">
+<h2>💬 Comunicação rápida</h2>
+
+<button class="phrase" onclick="falar('Preciso de ajuda')">
+🙋 Preciso de ajuda
+</button>
+
+<button class="phrase" onclick="falar('Quero beber água')">
+💧 Quero água
+</button>
+
+<button class="phrase" onclick="falar('Preciso ir ao banheiro')">
+🚻 Banheiro
+</button>
+
+<button class="phrase" onclick="falar('Não entendi')">
+❓ Não entendi
+</button>
+
+<button class="phrase" onclick="falar('Estou bem')">
+😊 Estou bem
+</button>
+
+<button class="phrase" onclick="falar('Estou com dificuldade')">
+🆘 Estou com dificuldade
+</button>
+</div>
+
+<div id="libras" class="panel">
+<h2>🤟 Libras</h2>
+<p class="big">
+Área destinada ao aprendizado e à comunicação em Libras.
+</p>
+<p>
+Na próxima versão adicionaremos sinais, imagens e atividades.
+</p>
+</div>
+
+<div id="ouvir" class="panel">
+<h2>🔊 Leitura em voz alta</h2>
+
+<p>Digite ou cole um texto:</p>
+
+<textarea id="texto"
+placeholder="Digite aqui o texto que deseja ouvir..."></textarea>
+
+<br>
+
+<button class="action" onclick="lerTexto()">
+▶️ Ouvir
+</button>
+
+<button class="action" onclick="parar()">
+⏹️ Parar
+</button>
+</div>
+
+<div id="quiz" class="panel">
+<h2>🧠 Quiz Inclusivo</h2>
+
+<p class="big">Qual destes é um meio de comunicação?</p>
+
+<button class="phrase" onclick="resposta(false)">
+⚽ Bola
+</button>
+
+<button class="phrase" onclick="resposta(true)">
+🤟 Libras
+</button>
+
+<button class="phrase" onclick="resposta(false)">
+👟 Tênis
+</button>
+
+<p id="resultado"></p>
+</div>
+
+<div id="jogos" class="panel">
+<h2>🎮 Jogos acessíveis</h2>
+
+<p class="big">
+Aqui teremos jogos educativos adaptados.
+</p>
+
+<button class="action" onclick="falar('Em breve teremos novos jogos')">
+🎯 Experimentar
+</button>
+</div>
+
+<div id="acessibilidade" class="panel">
+<h2>⚙️ Acessibilidade</h2>
+
+<button class="action" onclick="aumentar()">
+🔎 Aumentar letras
+</button>
+
+<button class="action" onclick="contraste()">
+◐ Alto contraste
+</button>
+
+<button class="action" onclick="falar('Acessibilidade ativada')">
+🔊 Testar voz
+</button>
+</div>
+
+</div>
+
+<script>
+
+function abrir(id) {
+  document.querySelectorAll('.panel').forEach(p => {
+    p.style.display = 'none';
+  });
+
+  document.getElementById(id).style.display = 'block';
+  document.getElementById(id).scrollIntoView({
+    behavior: 'smooth'
+  });
+}
+
+function falar(texto) {
+  speechSynthesis.cancel();
+
+  const voz = new SpeechSynthesisUtterance(texto);
+  voz.lang = 'pt-BR';
+
+  speechSynthesis.speak(voz);
+}
+
+function lerTexto() {
+  const texto = document.getElementById('texto').value;
+
+  if (!texto.trim()) {
+    falar('Digite algum texto primeiro');
+    return;
+  }
+
+  falar(texto);
+}
+
+function parar() {
+  speechSynthesis.cancel();
+}
+
+function aumentar() {
+  document.body.classList.toggle('big');
+}
+
+function contraste() {
+  document.body.classList.toggle('contrast');
+}
+
+function resposta(correta) {
+  const resultado = document.getElementById('resultado');
+
+  if (correta) {
+    resultado.innerHTML = '✅ Muito bem! Resposta correta.';
+    falar('Muito bem! Resposta correta.');
+  } else {
+    resultado.innerHTML = '❌ Tente novamente.';
+    falar('Tente novamente.');
+  }
+}
+
+</script>
+
+</body>
+</html>
